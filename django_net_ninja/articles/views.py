@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import Article
-from django.http import HttpResponse
+from django.http import JsonResponse
 
 # from django.contrib.auth.decorators import login_required
 from . import forms
@@ -8,8 +8,14 @@ from . import forms
 
 # Create your views here.
 def article_list(request):
-    articles = Article.objects.all().order_by("date")
-    return render(request, "articles/article_list.html", {"articles": articles})
+    # articles = Article.objects.all()
+    # return JsonResponse(articles, safe=False)
+
+    results = {"id": {"value": "1"}, "name": {"first": "Mega", "last": "Tron"}}
+    return JsonResponse(results)
+    # need to  figure out how to send data from querysets to the client
+
+    # return render(request, "articles/article_list.html", {"articles": articles})
 
 
 def article_detail(request, slug):
