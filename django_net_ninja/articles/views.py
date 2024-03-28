@@ -6,13 +6,14 @@ from django.http import JsonResponse
 from . import forms
 
 
-# Create your views here.
 def article_list(request):
     # articles = Article.objects.all()
     # return JsonResponse(articles, safe=False)
 
-    results = {"id": {"value": "1"}, "name": {"first": "Mega", "last": "Tron"}}
-    return JsonResponse(results)
+    data = {
+        "results": [{"id": {"value": "1"}, "name": {"first": "Mega", "last": "Tron"}}]
+    }
+    return JsonResponse(data)
     # need to  figure out how to send data from querysets to the client
 
     # return render(request, "articles/article_list.html", {"articles": articles})
