@@ -12,5 +12,7 @@ class Roster(models.Model):
     slug = models.SlugField(default="", null=False)
     date_time = models.DateTimeField(auto_now_add=True)
 
+    # todo add user password
+
     def __str__(self):
         return self.name
