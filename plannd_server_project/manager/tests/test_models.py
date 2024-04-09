@@ -41,9 +41,24 @@ def test_create_Roster(create_Roster):
     assert create_Roster[0][0].contact_number == "07000000000"
 
 
+"""
+We can compare two identical albums
+And have them be equal
+"""
+
+
+@pytest.mark.django_db
+def test_roster_entries_can_be_equal(create_Roster):
+    roster1 = create_Roster[0]
+    roster2 = create_Roster[0]
+    assert roster1 == roster2
+
+
+"""
+# Test Roster model constructs and it can be created in the database and retrieved
 # """
-# # Test Roster model constructs and it can be created in the database and retrieved
-# # """
+
+
 @pytest.mark.django_db
 def test_retrieves_staff_member_from_db(create_Roster):
 
