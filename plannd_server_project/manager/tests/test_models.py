@@ -42,7 +42,7 @@ def test_create_Roster(create_Roster):
 
 
 """
-We can compare two identical albums
+We can compare two identical roster entries
 And have them be equal
 """
 
@@ -60,7 +60,18 @@ def test_roster_entries_can_be_equal(create_Roster):
 
 
 @pytest.mark.django_db
-def test_retrieves_staff_member_from_db(create_Roster):
+def test_retrieves_all_staff_members_from_db(create_Roster):
 
     all_staff = Roster.objects.all()
     assert len(all_staff) == 3
+
+
+"""
+Test that an individual staff member can be selected
+"""
+
+
+@pytest.mark.django_db
+def test_retrieves_an_individual_staff_member(create_Roster):
+    staff_member = Roster.objects.filter(pk=2)
+    assert staff_member[0] == create_Roster[1]

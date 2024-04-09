@@ -18,4 +18,4 @@ class Roster(models.Model):
         return self.name
 
     def __eq__(self, other):
-        return self.__dict__ == other.__dict__
+        return self.pk == other.pk
