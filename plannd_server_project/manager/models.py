@@ -9,6 +9,7 @@ class Roster(models.Model):
     contact_number = models.CharField(
         max_length=11, help_text="Enter your mobile number"
     )
+    slug = models.SlugField(default="", null=False)
     date_time = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

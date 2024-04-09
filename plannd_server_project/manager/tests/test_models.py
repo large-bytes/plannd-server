@@ -21,7 +21,7 @@ def test_create_Roster():
 # def create_Roster():
 #     return Roster.objects.create(
 #         id=1,
-#         name="test name",
+#         name="test name"
 #         email="testemail@gmail.com",
 #         position="test-cafe role",
 #         contact_number="071112223232",
