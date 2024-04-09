@@ -33,7 +33,6 @@ def create_Roster():
 
 @pytest.mark.django_db
 def test_create_Roster(create_Roster):
-    print(create_Roster[0][0].email)
     assert create_Roster[0][0].id == 1
     assert create_Roster[0][0].name == "test name"
     assert create_Roster[0][0].email == "testemail@gmail.com"
@@ -73,5 +72,23 @@ Test that an individual staff member can be selected
 
 @pytest.mark.django_db
 def test_retrieves_an_individual_staff_member(create_Roster):
-    staff_member = Roster.objects.filter(pk=2)
-    assert staff_member[0] == create_Roster[1]
+    staff_member2 = Roster.objects.filter(pk=2)
+    staff_member3 = Roster.objects.filter(pk=3)
+
+    assert staff_member2[0] == create_Roster[1]
+    assert staff_member3[0] == create_Roster[2]
+
+
+"""
+Test that an individual staff member can be deleted
+"""
+
+
+@pytest.mark.django_db
+def test_deletes_an_individual_staff_member(create_Roster):
+    Roster.objects.filter(pk=2).delete()
+    all_staff = Roster.objects.all()
+
+    assert len(all_staff) == 2
+    assert all_staff[0].id == 1
+    assert all_staff[1].id == 3
