@@ -92,3 +92,20 @@ def test_deletes_an_individual_staff_member(create_Roster):
     assert len(all_staff) == 2
     assert all_staff[0].id == 1
     assert all_staff[1].id == 3
+
+
+"""
+Test that staff member details can be edited 
+"""
+
+
+@pytest.mark.django_db
+def test_updates_an_individual_staff_member(create_Roster):
+    Roster.objects.filter(pk=1).update(name="Orson Welles")
+    Roster.objects.filter(pk=3).update(email="new@geemail.com")
+
+    staff1 = Roster.objects.filter(pk=1)
+    staff3 = Roster.objects.filter(pk=3)
+
+    assert staff1[0].name == "Orson Welles"
+    assert staff3[0].email == "new@geemail.com"
