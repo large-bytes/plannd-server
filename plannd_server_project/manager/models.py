@@ -14,8 +14,8 @@ class Roster(models.Model):
 
     # todo add user password
 
-    def __str__(self):
-        return self.name
+    # def __str__(self):
+    #     return self.name
 
     def __eq__(self, other):
         return self.pk == other.pk
