@@ -2,13 +2,10 @@ import pytest
 from manager.models import Roster
 
 
+
 @pytest.fixture
 def create_roster():
-    """_summary_
 
-    Returns:
-        _type_: _description_
-    """
     staff_1 = (
         Roster.objects.create(
             id=1,
@@ -61,7 +58,9 @@ def test_retrieves_all_staff_members_from_db(create_roster):
     """
     Test Roster model constructs and it can be created in the database and retrieved
     """
+    
     all_staff = Roster.objects.all()
+    print(all_staff)
     assert len(all_staff) == 3
 
 

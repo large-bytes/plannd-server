@@ -1,3 +1,6 @@
-1) seed development database with 2 x staff
-2) TDD view to retrieve data
+-) TDD view to retrieve data
+index view retrieves data and returns a JSON object to teh client.
+
+Need to change name of the view to 'manager/all_staff' or similar
+Need to work out how to TDD the upcoming views
 

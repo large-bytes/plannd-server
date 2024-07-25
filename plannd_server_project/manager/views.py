@@ -1,17 +1,9 @@
-from django.http import JsonResponse
-from models import Roster
-
-# from django.shortcuts import render
-
-# a Python object (dict):
-x = {"name": "John", "age": 30, "city": "New York"}
+from django.http import HttpResponse
+from django.core import serializers
+from manager.models import Roster
 
 
-# Create your views here.
 def index(request):
-    
+    data = serializers.serialize('json', Roster.objects.all() )
+    return HttpResponse(data, content_type='application/json')
 
-    return JsonResponse(Roster.objects.all())
-
-
-# create view to send all data from get all  
