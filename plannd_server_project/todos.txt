@@ -4,3 +4,4 @@ index view retrieves data and returns a JSON object to teh client.
 Need to change name of the view to 'manager/all_staff' or similar
 Need to work out how to TDD the upcoming views
 
+Look in to Django REST
